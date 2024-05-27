@@ -20,8 +20,8 @@ return new class extends Migration
             $table->dateTime('Orario Arrivo', $precision = 0);
             $table->string('Codice Treno', 8);
             $table->unsignedTinyInteger('Numero Carrozze');
-            $table->unsignedTinyInteger('In Orario');
-            $table->unsignedTinyInteger('Cancellato');
+            $table->boolean('In Orario')->default(true);
+            $table->boolean('Cancellato')->default(false);
             $table->timestamps();
         });
     }
