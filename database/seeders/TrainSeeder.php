@@ -26,12 +26,12 @@ class TrainSeeder extends Seeder
             $new_train -> owner = $faker->randomElement($companies);
             $new_train -> departure = $faker->city();
             $new_train -> destination = $faker->city();
-            $new_train -> departure_time = $faker->dateTimeBetween('-1 week', '+1 week');
-            $new_train -> arrival_time = $faker->dateTimeBetween('-1 week', '+1 week');
+            $new_train -> departure_time = $faker->dateTimeBetween('-1 day', '+1 day');
+            $new_train -> arrival_time = $faker->dateTimeBetween('+1 day','+2 day');
             $new_train -> train_code = $faker->bothify('??######');
             $new_train -> wagons = $faker->numberBetween(4,12);
-            $new_train -> on_time = $faker->randomElement([true, false]);
-            $new_train -> cancelled = $faker->randomElement([true, false]);
+            $new_train -> on_time = $faker->boolean();
+            $new_train -> cancelled = $faker->boolean();
 
             $new_train->save();
         }
